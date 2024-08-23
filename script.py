@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-# Функция для создания видео с бегущей строкой
 def create_video_with_text(text="Hello world", font_path="PionerSans8-VF.ttf"):
     width, height = 100, 100
     duration = 3  # длительность видео в секундах
@@ -12,7 +11,6 @@ def create_video_with_text(text="Hello world", font_path="PionerSans8-VF.ttf"):
     font_size = 50 
     font = ImageFont.truetype(font_path, font_size)
 
-    # Вычисление длины текста для корректного движения
     text_width = ImageDraw.Draw(Image.new("RGB", (1, 1))).textbbox((0, 0), text, font=font)[2]
     total_frames = duration * fps
     speed = (text_width + width) / total_frames
@@ -33,7 +31,5 @@ def create_video_with_text(text="Hello world", font_path="PionerSans8-VF.ttf"):
     out.release()
     print("Done")
 
-# Пример текста на русском языке
-text = "HelloWorld"
-# Создаем видео
+text = "Привет мир"
 create_video_with_text(text)
